@@ -1,0 +1,177 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="BugPage.Views.RegPageView"
+			 xmlns:vm="using:BugPage.ViewModels">
+
+	<StackPanel>
+		<Grid
+			ColumnDefinitions="125,550,125"
+			RowDefinitions="450"
+			Margin="0"
+			Background="Wheat"
+			IsVisible ="True">
+			<TabControl
+				Margin="5"
+				TabStripPlacement="Top"
+				HorizontalAlignment="Center"
+				Grid.Row="1"
+				Grid.Column="1" >
+				<TabItem Header="Регистрация"
+						 Grid.Row="0"
+						 Grid.Column="0"
+						 Name="Tab1"
+						 IsVisible ="True">
+					<Border
+						Width="300" Grid.Row="1" Grid.Column="1" Height="350" Background="White"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center"
+						BoxShadow="5 5 10 0 Gray"
+						BorderBrush="Black"
+						BorderThickness="3"
+						CornerRadius="10"
+						Padding="10" Margin="10">
+						<StackPanel
+							Width="255"
+							Margin="20">
+							<TextBlock Text="Регистрация"
+									   TextAlignment="Center"
+									   FontSize="30"
+									   Margin="5"/>
+							<StackPanel
+								Name="registration"
+								IsVisible ="True">
+								<TextBox Name="name" Watermark="Имя"
+											 Opacity="5"
+											 Margin="5"
+											 CornerRadius="100"
+											 Background="Gainsboro"
+											 />
+								<TextBox Watermark="Фамилия"
+										 Name="surname"
+										 Opacity="5"
+										 Margin="5"
+										 CornerRadius="100"
+										 Background="Gainsboro"/>
+								<TextBox Watermark="Адрес эл.почты"
+										 Name="email"
+										 Opacity="5"
+										 Margin="5"
+										 CornerRadius="100"
+										 Background="Gainsboro"/>
+								<TextBox Watermark="Пароль" PasswordChar="*"
+										 Name="password"
+										 Opacity="5" Margin="5" CornerRadius="100"
+										 Background="Gainsboro"/>
+								<CheckBox Content="Подтеврдите что вы согласны с нашими улосвиями"
+										  FontSize="8" Margin="0"  Name="ch1"/>
+								<Button  Name="ButtonReg1"
+										 Content="Подтвердить"
+										 HorizontalAlignment="Center"
+										 Margin="5"/>
+								<TextBlock Name="InfoReg"
+										   Foreground="Red"
+		   								   TextAlignment="Center"
+										   FontSize="10"
+										   Margin="5"/>
+							</StackPanel>
+							<StackPanel
+								Name="registration2"
+								IsVisible ="false">
+								<TextBlock Name="name2"
+										   TextAlignment="Center"
+										   Margin="5"/>
+								<TextBox Watermark="Код"
+										 Opacity="5"
+										 Name="Code"
+										 Margin="5"
+										 CornerRadius="100"
+										 Background="Gainsboro"/>
+								<Button  Name="ButtonReg2"  Content="Подтвердить"
+										 HorizontalAlignment="Center"
+										 Margin="5"/>
+							</StackPanel>
+						</StackPanel>
+					</Border>
+				</TabItem>
+				<TabItem Header="Вход" Grid.Row="1" Grid.Column="1">
+					<Border
+						Width="300" Grid.Row="1" Grid.Column="1" Height="350" Background="White"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center"
+						BoxShadow="5 5 10 0 Gray"
+						BorderBrush="Black"
+						BorderThickness="3"
+						CornerRadius="10"
+						Padding="10" Margin="10">
+						<StackPanel Width="255" Margin="20">
+							<TextBlock Text="Вход"
+									   TextAlignment="Center"
+									   FontSize="30"
+									   Margin="5"/>
+							<TextBox Watermark="Адрес эл.почты"
+									 Name="emailentry"
+									 Opacity="5"
+									 Margin="5"
+									 CornerRadius="100"
+									 Background="Gainsboro"/>
+							<TextBox Watermark="Пароль" PasswordChar="*"
+									 Opacity="5" Margin="5" Name="pass"
+									 CornerRadius="100" Background="Gainsboro"/>
+							<Button Content="Подтвердить"
+									HorizontalAlignment="Center"
+									Margin="5" Name="ButtonEntry"/>
+						</StackPanel>
+					</Border>
+				</TabItem>
+				<TabItem Header="Забыл пороль">
+					<Border
+						Width="300" Grid.Row="1" Grid.Column="1" Height="350" Background="White"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center"
+						BoxShadow="5 5 10 0 Gray"
+						BorderBrush="Black"
+						BorderThickness="3"
+						CornerRadius="10"
+						Padding="10"
+						Margin="10">
+						<StackPanel Width="255" Margin="20">
+							<TextBlock Text="Введите адрес электронной почты"
+									   TextAlignment="Center"
+									   FontSize="12"
+									   Margin="5"/>
+							<TextBlock Text="Мы отправим на нём код для подтверждения"
+									   TextAlignment="Center"
+									   FontSize="10"
+									   Margin="5"/>
+							<TextBox Watermark="Адрес эл.почты"
+									 Opacity="5"
+									 Margin="5"
+									 CornerRadius="100"
+									 Background="Gainsboro"/>
+							<Button Content="Подтвердить"
+									HorizontalAlignment="Center"
+									Margin="5"/>
+							<TextBlock Text="Введите код потверждения"
+									   TextAlignment="Center"
+									   FontSize="12"
+									   Margin="0 40 0 0"/>
+							<TextBox Watermark="Код"
+									 Opacity="5"
+									 Margin="5"
+									 CornerRadius="100"
+									 Background="Gainsboro"
+									 IsEnabled="False"/>
+							<Button Content="Подтвердить"
+									HorizontalAlignment="Center"
+									IsEnabled="False"
+									Margin="5" />
+						</StackPanel>
+					</Border>
+				</TabItem>
+			</TabControl>
+		</Grid>
+	</StackPanel>
+</UserControl>
