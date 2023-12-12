@@ -14,13 +14,8 @@
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
 		<vm:MainWindowViewModel/>
 	</Design.DataContext>
-	<Grid RowDefinitions="*,Auto" Margin="10">
+	
+	<Grid Width="800" Height="450">
 		<TransitioningContentControl Content="{Binding CurrentPage}" />
-
-		<StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="5"
-					HorizontalAlignment="Right">
-			<Button Command="{Binding NavigatePreviousCommand}" Content="Back" />
-			<Button Command="{Binding NavigateNextCommand}" Content="Next" />
-		</StackPanel>
 	</Grid>
 </Window>

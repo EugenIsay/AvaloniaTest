@@ -27,7 +27,7 @@
 										   Margin="30"/>
 								<Image Grid.Column="1" MaxHeight="300"
 									   ToolTip.Tip="Это божья коровка" HorizontalAlignment="Right"
-									   Source="C:\Users\prdb\Desktop\IsayProjects\BugPage\Assets\ladybug.jpg" />
+									   Source="\Assets\ladybug.jpg" />
 							</Grid>
 							<Border
 									Grid.Row="0"
@@ -53,7 +53,7 @@
 										   Margin="30"/>
 								<Image HorizontalAlignment="Right"  Grid.Column="0" MaxHeight="300"
 									   ToolTip.Tip="Это стрекоза"
-									   Source="C:\Users\prdb\Desktop\IsayProjects\BugPage\Assets\dragonfly.jpg" />
+									   Source="\Assets\dragonfly.jpg" />
 							</Grid>
 							<Border
 									Grid.Row="0"
@@ -94,7 +94,8 @@
 		</ScrollViewer>
 		<Border>
 			<SplitView IsPaneOpen="{Binding IsPaneOpen}"
-					   OpenPaneLength="300" 
+					   OpenPaneLength="300"
+					   DisplayMode="Inline"
 					   x:Name="SplitView1" >
 				<SplitView.Pane>
 					<StackPanel>
@@ -117,18 +118,16 @@
 								Background="LightGray" Content="Основная страница" />
 					</StackPanel>
 				</SplitView.Pane>
-				<Button VerticalAlignment="Top"
-						Height="45" Width="50" Background="White"
-						Name="MainButtom" Command="{Binding PaneButton}">
-					<StackPanel>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-						<Image Name="Home" IsVisible="True"
-							   Source="C:\Users\prdb\Desktop\IsayProjects\BugPage\Assets\HomePage.png"/>
-						<Image Name="Back" IsVisible="False"
-							   Source="C:\Users\prdb\Desktop\IsayProjects\BugPage\Assets\Back.png"/>
-					</StackPanel>
-				</Button>
+				<Panel VerticalAlignment="Top">
+				<ToggleButton VerticalAlignment="Top"
+							  Height="45" Width="50" Background="White"
+							  Name="MainButtom" Command="{Binding PaneButton}" IsChecked="False">
+					<Panel>
+						<Image Source="\Assets\Back.png" />
+					</Panel>
+				</ToggleButton>
+					</Panel>
 			</SplitView>
 		</Border>
 	</Grid>
-
 </UserControl>

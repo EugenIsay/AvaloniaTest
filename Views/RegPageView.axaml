@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="BugPage.Views.RegPageView"
-			 xmlns:vm="using:BugPage.ViewModels">
+			 xmlns:vm="using:BugPage.ViewModels"
+			 x:DataType="vm:RegPageViewModel"
+			 x:CompileBindings="True">
 
 	<StackPanel>
 		<Grid
@@ -34,41 +36,46 @@
 						CornerRadius="10"
 						Padding="10" Margin="10">
 						<StackPanel
-							Width="255"
-							Margin="20">
+							Width="230"
+							Margin="10">
 							<TextBlock Text="Регистрация"
 									   TextAlignment="Center"
 									   FontSize="30"
 									   Margin="5"/>
 							<StackPanel
 								Name="registration"
-								IsVisible ="True">
+								IsVisible ="{Binding !Reg2Available}">
 								<TextBox Name="name" Watermark="Имя"
 											 Opacity="5"
-											 Margin="5"
+											 Margin="0 5"
 											 CornerRadius="100"
 											 Background="Gainsboro"
 											 />
 								<TextBox Watermark="Фамилия"
+										 Height="0"
 										 Name="surname"
 										 Opacity="5"
-										 Margin="5"
+										 Margin="0 5"
 										 CornerRadius="100"
 										 Background="Gainsboro"/>
 								<TextBox Watermark="Адрес эл.почты"
 										 Name="email"
 										 Opacity="5"
-										 Margin="5"
+										 Text="{Binding Email}"
+										 Margin="0 5"
 										 CornerRadius="100"
 										 Background="Gainsboro"/>
 								<TextBox Watermark="Пароль" PasswordChar="*"
 										 Name="password"
-										 Opacity="5" Margin="5" CornerRadius="100"
+										 Text="{Binding Password}"
+										 Opacity="5" Margin="0 5" CornerRadius="100"
 										 Background="Gainsboro"/>
 								<CheckBox Content="Подтеврдите что вы согласны с нашими улосвиями"
 										  FontSize="8" Margin="0"  Name="ch1"/>
 								<Button  Name="ButtonReg1"
+										 IsVisible="{Binding Reg1Available}"
 										 Content="Подтвердить"
+										 Command="{Binding Reg2}"
 										 HorizontalAlignment="Center"
 										 Margin="5"/>
 								<TextBlock Name="InfoReg"
@@ -79,7 +86,7 @@
 							</StackPanel>
 							<StackPanel
 								Name="registration2"
-								IsVisible ="false">
+								IsVisible ="{Binding Reg2Available}">
 								<TextBlock Name="name2"
 										   TextAlignment="Center"
 										   Margin="5"/>
@@ -87,10 +94,12 @@
 										 Opacity="5"
 										 Name="Code"
 										 Margin="5"
+										 Text="{Binding Code}"
 										 CornerRadius="100"
 										 Background="Gainsboro"/>
 								<Button  Name="ButtonReg2"  Content="Подтвердить"
 										 HorizontalAlignment="Center"
+										 Command="{Binding Confirm}"
 										 Margin="5"/>
 							</StackPanel>
 						</StackPanel>
